@@ -281,6 +281,10 @@
     <joint_properties friction="0.0"/>
   </joint>
 
-
-
+  <joint name="dummy_joint" type="fixed">
+    <parent link="dummy_link"/>
+    <child link="corps"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+  
 </robot>

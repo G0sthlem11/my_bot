@@ -1,157 +1,286 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  >
+<robot name="onshape">
+  <link name="corps">
+    <visual>
+      <origin xyz="-0.16487494494899462838 0.00098504563636114816916 -0.036950519133039851083" rpy="0 -0 0" />
+      <geometry>
+        <mesh filename="package:///corps.stl"/>
+      </geometry>
+      <material name="corps_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.16487494494899462838 0.00098504563636114816916 -0.036950519133039851083" rpy="0 -0 0" />
+      <geometry>
+        <mesh filename="package:///corps.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.03717597665985780675 -0.08895205340210562972 0.05181332411500932239" rpy="0 0 0"/>
+      <mass value="16.448528571913374918" />
+      <inertia ixx="0.095921333911981584985" ixy="1.5239950707448410568e-05" ixz="-0.0026043158442383908431" iyy="0.26122663097780685071" iyz="4.0105311590604869902e-05" izz="0.27029858095782255401" />
+    </inertial>
+  </link>
 
-    <xacro:include filename="inertial_macros.xacro"/>
-   
-    <material name="white">
-        <color rgba="1 1 1 1" />    
-    </material>
+  <link name="support_roue">
+    <visual>
+      <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 1.0379658610783623998e-17" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+      <material name="support_roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 1.0379658610783623998e-17" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0069440367254396985486 5.7925533100328629342e-09 0.01072376904755515184" rpy="0 0 0"/>
+      <mass value="0.062757225475031680473" />
+      <inertia ixx="4.3045751619389915053e-05" ixy="1.1104401055886233416e-11" ixz="-1.1010089946407120034e-05" iyy="5.1220160514781432959e-05" iyz="2.0159996300028320446e-11" izz="1.2742885347160338148e-05" />
+    </inertial>
+  </link>
 
-    <material name="orange">
-        <color rgba="1 0.3 0.1 1" />    
-    </material>
+  <link name="roue">
+    <visual>
+      <origin xyz="0 0 0.017999999999999960476" rpy="3.141592653589793116 8.1540335100360869226e-18 0" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+      <material name="roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.017999999999999960476" rpy="3.141592653589793116 8.1540335100360869226e-18 0" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-1.490588268484044217e-18 8.6605835587739984788e-19 0.0089999999999999576866" rpy="0 0 0"/>
+      <mass value="0.072827103715511029569" />
+      <inertia ixx="2.6456818459580168276e-05" ixy="0" ixz="-4.4844901063600417426e-22" iyy="2.6456818459580151335e-05" iyz="0" izz="4.8980973318522718371e-05" />
+    </inertial>
+  </link>
 
-    <material name="blue">
-        <color rgba="0.2 0.2 1 1" />    
-    </material>
+  <joint name="wheelfrontleft" type="revolute">
+    <origin xyz="0.040000000000000035527 0 0.035801747109368328714" rpy="1.570796326794896558 -0 -1.570796326794896558" />
+    <parent link="support_roue" />
+    <child link="roue" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
 
-    <material name="black">
-        <color rgba="0 0 0 1" />    
-    </material>
+  <joint name="supfrontleft" type="revolute">
+    <origin xyz="-0.10486365344508835618 -0.25900169054203697749 -0.0019505191330399032634" rpy="3.141592653589793116 -0 -1.6350926095779627634" />
+    <parent link="corps" />
+    <child link="support_roue" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
 
-    <material name="red">
-        <color rgba="1 0 0 1" />    
-    </material>
+  <link name="support_roue_2">
+    <visual>
+      <origin xyz="0 -2.7755575615628913511e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 1.8377189892559446398e-18" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+      <material name="support_roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 -2.7755575615628913511e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 1.8377189892559446398e-18" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0069440367254396968139 5.7925532822179718512e-09 0.01072376904755515184" rpy="0 0 0"/>
+      <mass value="0.062757225475031680473" />
+      <inertia ixx="4.30457516193899015e-05" ixy="1.110440105570899866e-11" ixz="-1.101008994640711834e-05" iyy="5.1220160514781432959e-05" iyz="2.0159996300122367004e-11" izz="1.2742885347160338148e-05" />
+    </inertial>
+  </link>
 
-    <!-- BASE LINK -->
-
-    <link name="base_link">
-
-    </link>
-
-    <joint name="chassis_joint" type="fixed">
-        <parent link="base_link"/> 
-        <child link="chassis"/> 
-        <origin xyz="-0.1 0 0"/> 
-    </joint>
-
-    <!-- CHASSIS LINK -->
-
-    <link name="chassis">
-        <visual>
-            <origin xyz="0.15 0 0.075"/> 
-            <geometry>
-                <box size="0.3 0.3 0.15"/> 
-            </geometry>
-            <material name ="white"/> 
-        </visual>
-        <collision>
-            <origin xyz="0.15 0 0.075"/> 
-            <geometry>
-                <box size="0.3 0.3 0.15"/> 
-            </geometry>
-        </collision>
-        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
-            <origin xyz="0.15 0 0.075" rpy="0 0 0"/>
-        </xacro:inertial_box>
-    </link>
-
-    <gazebo reference="chassis">
-        <material>Gazebo/White</material>
-    </gazebo>
-
-    <!-- LEFT WHEEL LINK -->
-
-    <joint name="left_wheel_joint" type="continuous">
-        <parent link="base_link"/>  
-        <child link="left_wheel"/>  
-        <origin xyz="0 0.175 0" rpy="-${pi/2} 0 0"/>
-        <axis xyz="0 0 1"/>
-    </joint>
-
-    <link name ="left_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.05" length="0.04"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.05" length="0.04"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
-    </link>
-
-    <gazebo reference="left_wheel">
-        <material>Gazebo/Blue</material>
-    </gazebo>
-
-
-        <!-- RIGHT WHEEL LINK -->
-
-        <joint name="right_wheel_joint" type="continuous">
-            <parent link="base_link"/>  
-            <child link="right_wheel"/>  
-            <origin xyz="0 -0.175 0" rpy="-${pi/2} 0 0"/>
-            <axis xyz="0 0 -1"/>
-        </joint>
-    
-        <link name ="right_wheel">
-            <visual>
-                <geometry>
-                    <cylinder radius="0.05" length="0.04"/>
-                </geometry>
-                <material name="blue"/>
-            </visual>
-            <collision>
-                <geometry>
-                    <cylinder radius="0.05" length="0.04"/>
-                </geometry>
-            </collision>
-            <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-            </xacro:inertial_cylinder>
-        </link>
-
-        <gazebo reference="right_wheel">
-            <material>Gazebo/Blue</material>
-        </gazebo>
+  <link name="roue_2">
+    <visual>
+      <origin xyz="0 0 -0.018000000000000015987" rpy="2.5242800315414714867e-18 -4.1786896273659949387e-19 -5.5878178144470137785e-18" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+      <material name="roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.018000000000000015987" rpy="2.5242800315414714867e-18 -4.1786896273659949387e-19 -5.5878178144470137785e-18" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-1.5230494864408887106e-18 -8.7757107739162758437e-19 -0.0090000000000000131978" rpy="0 0 0"/>
+      <mass value="0.072827103715511029569" />
+      <inertia ixx="2.6456818459580154723e-05" ixy="-3.2301060950170305094e-21" ixz="6.7110037342331918919e-23" iyy="2.6456818459580151335e-05" iyz="4.1283846120836476691e-24" izz="4.8980973318522718371e-05" />
+    </inertial>
+  </link>
 
 
-        <!-- CASTER WHEEL LINK-->
+  <joint name="wheelbackleft" type="revolute">
+    <origin xyz="0.040000000000000035527 0 0.035801747109368328714" rpy="-1.570796326794896558 -1.0466347978309025191 -1.570796326794896558" />
+    <parent link="support_roue_2" />
+    <child link="roue_2" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
 
-        <joint name ="caster_wheel_joint" type ="fixed">
-            <parent link="chassis"/>
-            <child link="caster_wheel"/>
-            <origin xyz="0.24 0 0"/>
-        </joint>
+  <joint name="supbackleft" type="revolute">
+    <origin xyz="0.17511376354709917713 -0.259001690542037033 -0.0019505191330399032634" rpy="3.141592653589793116 -0 -1.5986454079556713381" />
+    <parent link="corps" />
+    <child link="support_roue_2" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
 
-        <link name="caster_wheel">
-            <visual>
-                <geometry>
-                    <sphere radius="0.05"/>
-                </geometry>
-                <material name="black"/>
-            </visual>
-            <collision>
-                <geometry>
-                    <sphere radius="0.05"/>
-                </geometry>
-            </collision>
-            <xacro:inertial_sphere mass="0.1" radius="0.05">
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-            </xacro:inertial_sphere>
-        </link>
+  <link name="support_roue_3">
+    <visual>
+      <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 3.985001973689215218e-19" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+      <material name="support_roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 3.985001973689215218e-19" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0069440367254396968139 5.7925533099635534706e-09 0.01072376904755515184" rpy="0 0 0"/>
+      <mass value="0.062757225475031680473" />
+      <inertia ixx="4.30457516193899015e-05" ixy="1.1104401055527497139e-11" ixz="-1.101008994640711834e-05" iyy="5.1220160514781432959e-05" iyz="2.0159996300138212683e-11" izz="1.2742885347160338148e-05" />
+    </inertial>
+  </link>
 
-        <gazebo reference="caster_wheel">
-            <material>Gazebo/Black</material>
-            <mu1 value="0.001"/>
-            <mu2 value="0.001"/>
-        </gazebo>
+  <link name="roue_3">
+    <visual>
+      <origin xyz="0 1.3877787807814456755e-17 0.018000000000000002109" rpy="-3.141592653589793116 2.6771850920217469288e-18 3.0984265678640010969e-17" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+      <material name="roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 1.3877787807814456755e-17 0.018000000000000002109" rpy="-3.141592653589793116 2.6771850920217469288e-18 3.0984265678640010969e-17" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+     </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-1.4715680269283765135e-18 1.4740161447828721662e-17 0.00899999999999999932" rpy="0 0 0"/>
+      <mass value="0.072827103715511029569" />
+      <inertia ixx="2.6456818459580154723e-05" ixy="1.0844919925150115207e-21" ixz="-4.0706346454884945295e-22" iyy="2.6456818459580151335e-05" iyz="8.0445128214762992534e-23" izz="4.8980973318522718371e-05" />
+    </inertial>
+  </link>
 
-    
+
+  <joint name="wheelbackright" type="revolute">
+    <origin xyz="0.040000000000000007772 8.3266726846886740532e-17 0.035801747109368328714" rpy="-1.570796326794896558 0.51776836171346907189 1.5707963267948970021" />
+    <parent link="support_roue_3" />
+    <child link="roue_3" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
+
+  <joint name="supbackright" type="revolute">
+    <origin xyz="0.17511376354709914938 0.080971781814759308249 -0.0019505191330399032634" rpy="3.141592653589793116 -0 1.6025660734294633336" />
+    <parent link="corps" />
+    <child link="support_roue_3" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
+
+  <link name="support_roue_4">
+    <visual>
+      <origin xyz="0 1.3877787807814456755e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 8.6963759104196122014e-18" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+      <material name="support_roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 1.3877787807814456755e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 8.6963759104196122014e-18" />
+      <geometry>
+        <mesh filename="package:///support_roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0.0069440367254396985486 5.7925533238989618528e-09 0.01072376904755515184" rpy="0 0 0"/>
+      <mass value="0.062757225475031680473" />
+      <inertia ixx="4.3045751619389915053e-05" ixy="1.1104401056015343061e-11" ixz="-1.1010089946407120034e-05" iyy="5.1220160514781419407e-05" iyz="2.015999630004685123e-11" izz="1.2742885347160338148e-05" />
+    </inertial>
+  </link>
+
+  <link name="roue_4">
+    <visual>
+      <origin xyz="0 0 0.018000000000000015987" rpy="3.141592653589793116 -2.8063591805892701907e-20 3.8063495312512622149e-19" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+      <material name="roue_material">
+        <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.018000000000000015987" rpy="3.141592653589793116 -2.8063591805892701907e-20 3.8063495312512622149e-19" />
+      <geometry>
+        <mesh filename="package:///roue.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="-1.5350936370502411499e-18 8.8237584115536215772e-19 0.0090000000000000131978" rpy="0 0 0"/>
+      <mass value="0.072827103715511029569" />
+      <inertia ixx="2.6456818459580147947e-05" ixy="2.504680858454557762e-22" ixz="1.0236165925189605861e-23" iyy="2.6456818459580151335e-05" iyz="-1.5471163563363809455e-22" izz="4.8980973318522718371e-05" />
+    </inertial>
+  </link>
+
+  <joint name="wheelfrontright" type="revolute">
+    <origin xyz="0.03999999999999995226 2.7755575615628913511e-17 0.035801747109368328714" rpy="1.570796326794896558 -1.5268183480501129612 -1.5707963267948970021" />
+    <parent link="support_roue_4" />
+    <child link="roue_4" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
+
+  <joint name="supfrontright" type="revolute">
+    <origin xyz="-0.10486365344508835618 0.080971781814759252738 -0.0019505191330399032634" rpy="3.141592653589793116 -0 1.6345399515772143229" />
+    <parent link="corps" />
+    <child link="support_roue_4" />
+    <axis xyz="0 0 1"/>
+    <limit effort="1" velocity="20" />
+    <joint_properties friction="0.0"/>
+  </joint>
+
+
+
 </robot>

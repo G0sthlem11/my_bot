@@ -4,7 +4,7 @@
     <visual>
       <origin xyz="-0.16487494494899462838 0.00098504563636114816916 -0.036950519133039851083" rpy="0 -0 0" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/corps.stl"/>
+        <mesh filename="file://cadstl/corps.stl"/>
       </geometry>
       <material name="corps_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -13,7 +13,7 @@
     <collision>
       <origin xyz="-0.16487494494899462838 0.00098504563636114816916 -0.036950519133039851083" rpy="0 -0 0" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/corps.stl"/>
+        <mesh filename="file://cadstl/corps.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -27,7 +27,7 @@
     <visual>
       <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 1.0379658610783623998e-17" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
       <material name="support_roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -36,7 +36,7 @@
     <collision>
       <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 1.0379658610783623998e-17" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -50,7 +50,7 @@
     <visual>
       <origin xyz="0 0 0.017999999999999960476" rpy="3.141592653589793116 8.1540335100360869226e-18 0" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
       <material name="roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -59,7 +59,7 @@
     <collision>
       <origin xyz="0 0 0.017999999999999960476" rpy="3.141592653589793116 8.1540335100360869226e-18 0" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -91,7 +91,7 @@
     <visual>
       <origin xyz="0 -2.7755575615628913511e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 1.8377189892559446398e-18" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
       <material name="support_roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -100,7 +100,7 @@
     <collision>
       <origin xyz="0 -2.7755575615628913511e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 1.8377189892559446398e-18" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -114,7 +114,7 @@
     <visual>
       <origin xyz="0 0 -0.018000000000000015987" rpy="2.5242800315414714867e-18 -4.1786896273659949387e-19 -5.5878178144470137785e-18" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
       <material name="roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -123,7 +123,7 @@
     <collision>
       <origin xyz="0 0 -0.018000000000000015987" rpy="2.5242800315414714867e-18 -4.1786896273659949387e-19 -5.5878178144470137785e-18" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -156,7 +156,7 @@
     <visual>
       <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 3.985001973689215218e-19" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
       <material name="support_roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -165,7 +165,7 @@
     <collision>
       <origin xyz="0 0 0.035801747109368328714" rpy="3.141592653589793116 -0 3.985001973689215218e-19" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -179,7 +179,7 @@
     <visual>
       <origin xyz="0 1.3877787807814456755e-17 0.018000000000000002109" rpy="-3.141592653589793116 2.6771850920217469288e-18 3.0984265678640010969e-17" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
       <material name="roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -188,7 +188,7 @@
     <collision>
       <origin xyz="0 1.3877787807814456755e-17 0.018000000000000002109" rpy="-3.141592653589793116 2.6771850920217469288e-18 3.0984265678640010969e-17" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
      </geometry>
     </collision>
     <inertial>
@@ -221,7 +221,7 @@
     <visual>
       <origin xyz="0 1.3877787807814456755e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 8.6963759104196122014e-18" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
       <material name="support_roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -230,7 +230,7 @@
     <collision>
       <origin xyz="0 1.3877787807814456755e-17 0.035801747109368328714" rpy="3.141592653589793116 -0 8.6963759104196122014e-18" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/support_roue.stl"/>
+        <mesh filename="file://cadstl/support_roue.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -244,7 +244,7 @@
     <visual>
       <origin xyz="0 0 0.018000000000000015987" rpy="3.141592653589793116 -2.8063591805892701907e-20 3.8063495312512622149e-19" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
       <material name="roue_material">
         <color rgba="0.61568627450980395466 0.81176470588235294379 0.92941176470588238168 1.0"/>
@@ -253,7 +253,7 @@
     <collision>
       <origin xyz="0 0 0.018000000000000015987" rpy="3.141592653589793116 -2.8063591805892701907e-20 3.8063495312512622149e-19" />
       <geometry>
-        <mesh filename="package://my_bot/cadstl/roue.stl"/>
+        <mesh filename="file://cadstl/roue.stl"/>
       </geometry>
     </collision>
     <inertial>
